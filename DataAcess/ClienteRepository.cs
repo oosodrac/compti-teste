@@ -34,7 +34,7 @@ namespace DataAcess
         public int RemoveAll(Predicate<Cliente> match)
         {
             return new ExcelMapper(ExcelHelper.sourceFile).Fetch<Cliente>()
-                .ToList().RemoveAll(cliente => cliente.ValorCredito == 0);
+                .ToList().RemoveAll(match);
         }
     }
 }
