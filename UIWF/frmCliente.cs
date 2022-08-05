@@ -143,6 +143,11 @@ namespace UIWF
                 MetroFramework.MetroMessageBox.Show(this, "Informe o Nome do cliente", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNome.Focus();
             }
+            else if (cbxCondicaoPagamento.SelectedItem == null)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Informe a Condição de pagamento", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbxCondicaoPagamento.Focus();
+            }
             else
             {
                 pContainer.Enabled = false;
