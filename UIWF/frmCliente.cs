@@ -39,8 +39,53 @@ namespace UIWF
             numTaxaIVA.Value = 0;
             numDesconto.Value = 0;
             pContainer.Enabled = false;
+            loadGridViewCliente();
         }
         #endregion
+
+        private void loadGridViewCliente() {
+            var clientes = new List<Cliente>
+            {
+                new Cliente() {
+                    Anulado = false,
+                    Codigo = "1",
+                    CondicaoPagamento = CondicaoPagamento.PRAZO.ToString(),
+                    DataCriacao = DateTime.Now,
+                    Desconto = 0,
+                    Facturacao = Faturacao.MODERADO.ToString(),
+                    Iva = 0,
+                    ModoPagamento = ModoPagamento.NUMERARIO.ToString(),
+                    Nome = "Ramiro Cardoso",
+                    ValorCredito = 1000
+                },
+                    new Cliente() {
+                    Anulado = false,
+                    Codigo = "2",
+                    CondicaoPagamento = CondicaoPagamento.PRONTO.ToString(),
+                    DataCriacao = DateTime.Now,
+                    Desconto = 0,
+                    Facturacao = Faturacao.MODERADO.ToString(),
+                    Iva = 0,
+                    ModoPagamento = ModoPagamento.NUMERARIO.ToString(),
+                    Nome = "Catiana Cardoso",
+                    ValorCredito = 1000
+                },
+                    new Cliente() {
+                    Anulado = false,
+                    Codigo = "3",
+                    CondicaoPagamento = CondicaoPagamento.PRONTO.ToString(),
+                    DataCriacao = DateTime.Now,
+                    Desconto = 0,
+                    Facturacao = Faturacao.MODERADO.ToString(),
+                    Iva = 0,
+                    ModoPagamento = ModoPagamento.NUMERARIO.ToString(),
+                    Nome = "Rainer Cardoso",
+                    ValorCredito = 1000
+                }
+            };
+
+            clienteBindingSource.DataSource = clientes;
+        }
 
         #region preencher combox FormaPagamento e CondicaoPagamento com Enum
         private void loadFormaPagamento()

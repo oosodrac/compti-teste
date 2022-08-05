@@ -33,17 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridCliente = new MetroFramework.Controls.MetroGrid();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ivaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descontoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.condicaoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorCreditoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facturacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anuladoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataCriacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pContainer = new MetroFramework.Controls.MetroPanel();
             this.numDesconto = new System.Windows.Forms.NumericUpDown();
             this.numTaxaIVA = new System.Windows.Forms.NumericUpDown();
@@ -69,12 +58,23 @@
             this.btnNovo = new MetroFramework.Controls.MetroButton();
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ivaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descontoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condicaoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorCreditoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facturacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anuladoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataCriacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.pContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDesconto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTaxaIVA)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gridCliente
@@ -132,70 +132,6 @@
             this.gridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCliente.Size = new System.Drawing.Size(567, 464);
             this.gridCliente.TabIndex = 0;
-            // 
-            // codigoDataGridViewTextBoxColumn
-            // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            // 
-            // ivaDataGridViewTextBoxColumn
-            // 
-            this.ivaDataGridViewTextBoxColumn.DataPropertyName = "Iva";
-            this.ivaDataGridViewTextBoxColumn.HeaderText = "Iva";
-            this.ivaDataGridViewTextBoxColumn.Name = "ivaDataGridViewTextBoxColumn";
-            // 
-            // descontoDataGridViewTextBoxColumn
-            // 
-            this.descontoDataGridViewTextBoxColumn.DataPropertyName = "Desconto";
-            this.descontoDataGridViewTextBoxColumn.HeaderText = "Desconto";
-            this.descontoDataGridViewTextBoxColumn.Name = "descontoDataGridViewTextBoxColumn";
-            // 
-            // condicaoPagamentoDataGridViewTextBoxColumn
-            // 
-            this.condicaoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "CondicaoPagamento";
-            this.condicaoPagamentoDataGridViewTextBoxColumn.HeaderText = "CondicaoPagamento";
-            this.condicaoPagamentoDataGridViewTextBoxColumn.Name = "condicaoPagamentoDataGridViewTextBoxColumn";
-            // 
-            // modoPagamentoDataGridViewTextBoxColumn
-            // 
-            this.modoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "ModoPagamento";
-            this.modoPagamentoDataGridViewTextBoxColumn.HeaderText = "ModoPagamento";
-            this.modoPagamentoDataGridViewTextBoxColumn.Name = "modoPagamentoDataGridViewTextBoxColumn";
-            // 
-            // valorCreditoDataGridViewTextBoxColumn
-            // 
-            this.valorCreditoDataGridViewTextBoxColumn.DataPropertyName = "ValorCredito";
-            this.valorCreditoDataGridViewTextBoxColumn.HeaderText = "ValorCredito";
-            this.valorCreditoDataGridViewTextBoxColumn.Name = "valorCreditoDataGridViewTextBoxColumn";
-            // 
-            // facturacaoDataGridViewTextBoxColumn
-            // 
-            this.facturacaoDataGridViewTextBoxColumn.DataPropertyName = "Facturacao";
-            this.facturacaoDataGridViewTextBoxColumn.HeaderText = "Facturacao";
-            this.facturacaoDataGridViewTextBoxColumn.Name = "facturacaoDataGridViewTextBoxColumn";
-            // 
-            // anuladoDataGridViewCheckBoxColumn
-            // 
-            this.anuladoDataGridViewCheckBoxColumn.DataPropertyName = "Anulado";
-            this.anuladoDataGridViewCheckBoxColumn.HeaderText = "Anulado";
-            this.anuladoDataGridViewCheckBoxColumn.Name = "anuladoDataGridViewCheckBoxColumn";
-            // 
-            // dataCriacaoDataGridViewTextBoxColumn
-            // 
-            this.dataCriacaoDataGridViewTextBoxColumn.DataPropertyName = "DataCriacao";
-            this.dataCriacaoDataGridViewTextBoxColumn.HeaderText = "DataCriacao";
-            this.dataCriacaoDataGridViewTextBoxColumn.Name = "dataCriacaoDataGridViewTextBoxColumn";
-            // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataSource = typeof(UIWF.Cliente);
             // 
             // pContainer
             // 
@@ -259,6 +195,7 @@
             // 
             this.chxAnulado.AutoSize = true;
             this.chxAnulado.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.clienteBindingSource, "Anulado", true));
+            this.chxAnulado.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.clienteBindingSource, "Anulado", true));
             this.chxAnulado.Location = new System.Drawing.Point(38, 413);
             this.chxAnulado.Name = "chxAnulado";
             this.chxAnulado.Size = new System.Drawing.Size(57, 15);
@@ -559,6 +496,70 @@
             this.metroLabel8.TabIndex = 4;
             this.metroLabel8.Text = "Código";
             // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataSource = typeof(UIWF.Cliente);
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            // 
+            // ivaDataGridViewTextBoxColumn
+            // 
+            this.ivaDataGridViewTextBoxColumn.DataPropertyName = "Iva";
+            this.ivaDataGridViewTextBoxColumn.HeaderText = "Iva";
+            this.ivaDataGridViewTextBoxColumn.Name = "ivaDataGridViewTextBoxColumn";
+            // 
+            // descontoDataGridViewTextBoxColumn
+            // 
+            this.descontoDataGridViewTextBoxColumn.DataPropertyName = "Desconto";
+            this.descontoDataGridViewTextBoxColumn.HeaderText = "Desconto";
+            this.descontoDataGridViewTextBoxColumn.Name = "descontoDataGridViewTextBoxColumn";
+            // 
+            // condicaoPagamentoDataGridViewTextBoxColumn
+            // 
+            this.condicaoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "CondicaoPagamento";
+            this.condicaoPagamentoDataGridViewTextBoxColumn.HeaderText = "CondicaoPagamento";
+            this.condicaoPagamentoDataGridViewTextBoxColumn.Name = "condicaoPagamentoDataGridViewTextBoxColumn";
+            // 
+            // modoPagamentoDataGridViewTextBoxColumn
+            // 
+            this.modoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "ModoPagamento";
+            this.modoPagamentoDataGridViewTextBoxColumn.HeaderText = "ModoPagamento";
+            this.modoPagamentoDataGridViewTextBoxColumn.Name = "modoPagamentoDataGridViewTextBoxColumn";
+            // 
+            // valorCreditoDataGridViewTextBoxColumn
+            // 
+            this.valorCreditoDataGridViewTextBoxColumn.DataPropertyName = "ValorCredito";
+            this.valorCreditoDataGridViewTextBoxColumn.HeaderText = "ValorCredito";
+            this.valorCreditoDataGridViewTextBoxColumn.Name = "valorCreditoDataGridViewTextBoxColumn";
+            // 
+            // facturacaoDataGridViewTextBoxColumn
+            // 
+            this.facturacaoDataGridViewTextBoxColumn.DataPropertyName = "Facturacao";
+            this.facturacaoDataGridViewTextBoxColumn.HeaderText = "Facturacao";
+            this.facturacaoDataGridViewTextBoxColumn.Name = "facturacaoDataGridViewTextBoxColumn";
+            // 
+            // anuladoDataGridViewCheckBoxColumn
+            // 
+            this.anuladoDataGridViewCheckBoxColumn.DataPropertyName = "Anulado";
+            this.anuladoDataGridViewCheckBoxColumn.HeaderText = "Anulado";
+            this.anuladoDataGridViewCheckBoxColumn.Name = "anuladoDataGridViewCheckBoxColumn";
+            // 
+            // dataCriacaoDataGridViewTextBoxColumn
+            // 
+            this.dataCriacaoDataGridViewTextBoxColumn.DataPropertyName = "DataCriacao";
+            this.dataCriacaoDataGridViewTextBoxColumn.HeaderText = "DataCriacao";
+            this.dataCriacaoDataGridViewTextBoxColumn.Name = "dataCriacaoDataGridViewTextBoxColumn";
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,12 +574,12 @@
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.frmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.pContainer.ResumeLayout(false);
             this.pContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDesconto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTaxaIVA)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
