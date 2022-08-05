@@ -32,16 +32,25 @@ namespace UIWF
         {
             loadFormaPagamento();
             loadCondicaoPagamento();
-            chxAnulado.Checked = true;
+            loadGridViewCliente();
+        }
+        #endregion
+
+        #region inicializa as controls do formulario
+        private void initFormControls() {
+            chxAnulado.Checked = false;
             txtCodigo.Text = String.Empty;
             txtNome.Text = String.Empty;
             txtValorCredito.Text = "0";
+
             cbxCondicaoPagamento.SelectedItem = null;
+            cbxCondicaoPagamento.Text = null;
+
             cbxModoPagamento.SelectedItem = null;
+            cbxModoPagamento.Text = null;
+
             numTaxaIVA.Value = 0;
             numDesconto.Value = 0;
-            pContainer.Enabled = false;
-            loadGridViewCliente();
         }
         #endregion
 
@@ -90,6 +99,8 @@ namespace UIWF
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            // TODO: soroudn with Try Catch
+            initFormControls();
             estadoEntidade = EstadoEntidade.Adicionado;
             clienteBindingSource.Add(new Cliente());
             clienteBindingSource.MoveLast();
@@ -131,6 +142,8 @@ namespace UIWF
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            // TODO: soroudn with Try Catch
+
             // Não permiti salvar cliente sem um codigo
             if ( String.IsNullOrEmpty(txtCodigo.Text) )
             {
@@ -147,6 +160,11 @@ namespace UIWF
             {
                 MetroFramework.MetroMessageBox.Show(this, "Informe a Condição de pagamento", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbxCondicaoPagamento.Focus();
+            }
+            else if (cbxModoPagamento.SelectedItem == null)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Informe o Modo de pagamento", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbxModoPagamento.Focus();
             }
             else
             {

@@ -8,6 +8,7 @@ namespace UIWF
 {
     public enum CondicaoPagamento
     {
+
         PRONTO,
         PRAZO
     }

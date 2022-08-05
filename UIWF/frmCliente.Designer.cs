@@ -280,7 +280,7 @@
             // 
             // cbxCondicaoPagamento
             // 
-            this.cbxCondicaoPagamento.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.clienteBindingSource, "CondicaoPagamento", true));
+            this.cbxCondicaoPagamento.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "CondicaoPagamento", true));
             this.cbxCondicaoPagamento.FormattingEnabled = true;
             this.cbxCondicaoPagamento.ItemHeight = 23;
             this.cbxCondicaoPagamento.Items.AddRange(new object[] {
