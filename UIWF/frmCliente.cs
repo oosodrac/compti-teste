@@ -123,18 +123,17 @@ namespace UIWF
         private void btnRemover_Click(object sender, EventArgs e)
         {
             estadoEntidade = EstadoEntidade.Eliminado;
-            if (MetroFramework.MetroMessageBox.Show(this, "Tens a certeza que pretendes Eliminar o cliente ?", titleMessageBox, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Tens a certeza que pretendes Eliminar clientes sem movimento ?", titleMessageBox, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                var cliente = clienteBindingSource.Current as Cliente;
-                if (cliente != null)
+                // foram eliminados os clientes sem movimento
+                if (eliminarClientesSemMovimento() )
                 {
-                    MetroFramework.MetroMessageBox.Show(this, "Cliente Eliminado com sucesso", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    clienteBindingSource.RemoveCurrent();
-                    pContainer.Enabled = false;
+                    MetroFramework.MetroMessageBox.Show(this, "Clientes Eliminados com sucesso", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                    // Não tem cliente sem movimento
                 else
                 {
-                    MetroFramework.MetroMessageBox.Show(this, "Cliente não existe!", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroFramework.MetroMessageBox.Show(this, "Não tem clientes sem movimento", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -186,7 +185,9 @@ namespace UIWF
 
             if ( isValidoCOntrols() ) {
                     pContainer.Enabled = false;
-                        new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
+
+                    salvarClientes();
+
                         MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
@@ -231,6 +232,30 @@ namespace UIWF
                     clienteBindingSource.DataSource = clienteResult;
                 }
             }
+        }
+
+        private void salvarClientes()
+        {
+            new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
+        }
+
+        private bool eliminarClientesSemMovimento()
+        {
+            var count = listaCliente.Where(cliente => cliente.ValorCredito == 0).Count();
+
+            if (count > 0)
+            {
+                listaCliente.RemoveAll(cliente => cliente.ValorCredito == 0);
+                clienteBindingSource.DataSource = listaCliente;
+                salvarClientes();
+                //loadGridViewCliente();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
     }
