@@ -14,6 +14,8 @@ namespace UIWF
     {
         EstadoEntidade estadoEntidade = EstadoEntidade.Novo;
         static String titleMessageBox = "Teste de Ramiro Cardos | COMPT";
+        static List<Cliente> listaCliente = new List<Cliente>();
+        static String file = @"C:\Users\miros\Documents\visual studio 2013\Projects\TesteCompti\UIWF\bin\Debug\clientes.xlsx";
 
         public frmCliente()
         {
@@ -45,47 +47,10 @@ namespace UIWF
 
         #region popular o gridview
         private void loadGridViewCliente() {
-            var clientes = new List<Cliente>
-            {
-                new Cliente() {
-                    Anulado = false,
-                    Codigo = "1",
-                    CondicaoPagamento = CondicaoPagamento.PRAZO.ToString(),
-                    DataCriacao = DateTime.Now,
-                    Desconto = 0,
-                    Facturacao = Faturacao.MODERADO.ToString(),
-                    Iva = 0,
-                    ModoPagamento = ModoPagamento.NUMERARIO.ToString(),
-                    Nome = "Ramiro Cardoso",
-                    ValorCredito = 1000
-                },
-                    new Cliente() {
-                    Anulado = false,
-                    Codigo = "2",
-                    CondicaoPagamento = CondicaoPagamento.PRONTO.ToString(),
-                    DataCriacao = DateTime.Now,
-                    Desconto = 0,
-                    Facturacao = Faturacao.MODERADO.ToString(),
-                    Iva = 0,
-                    ModoPagamento = ModoPagamento.NUMERARIO.ToString(),
-                    Nome = "Catiana Cardoso",
-                    ValorCredito = 1000
-                },
-                    new Cliente() {
-                    Anulado = false,
-                    Codigo = "3",
-                    CondicaoPagamento = CondicaoPagamento.PRONTO.ToString(),
-                    DataCriacao = DateTime.Now,
-                    Desconto = 0,
-                    Facturacao = Faturacao.MODERADO.ToString(),
-                    Iva = 0,
-                    ModoPagamento = ModoPagamento.NUMERARIO.ToString(),
-                    Nome = "Rainer Cardoso",
-                    ValorCredito = 1000
-                }
-            };
+            var clientes = new Ganss.Excel.ExcelMapper(file).Fetch<Cliente>().ToList();
 
-            clienteBindingSource.DataSource = clientes;
+            listaCliente.AddRange(clientes);
+            clienteBindingSource.DataSource = listaCliente;
         }
         #endregion
 
@@ -131,8 +96,6 @@ namespace UIWF
             pContainer.Enabled = true;
             txtCodigo.Focus();
 
-            var excel = new ExcelHelper();
-            excel.inserirData();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -168,7 +131,8 @@ namespace UIWF
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-
+            new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
+            pContainer.Enabled = false;
         }
 
         private void chxAnulado_CheckStateChanged(object sender, EventArgs e)
