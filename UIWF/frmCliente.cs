@@ -131,9 +131,18 @@ namespace UIWF
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            pContainer.Enabled = false; 
-            new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
-            MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Não permiti salvar cliente sem um codigo
+            if (txtCodigo.Text == "0" || txtCodigo.Text == "" || txtCodigo.Text == null)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Informe o código do cliente", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                pContainer.Enabled = false;
+                new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
+                MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             
         }
 

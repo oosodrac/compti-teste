@@ -29,21 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridCliente = new MetroFramework.Controls.MetroGrid();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ivaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descontoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.condicaoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorCreditoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facturacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anuladoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataCriacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pContainer = new MetroFramework.Controls.MetroPanel();
             this.numDesconto = new System.Windows.Forms.NumericUpDown();
             this.numTaxaIVA = new System.Windows.Forms.NumericUpDown();
@@ -69,12 +58,23 @@
             this.btnNovo = new MetroFramework.Controls.MetroButton();
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ivaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descontoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condicaoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorCreditoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facturacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anuladoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataCriacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.pContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDesconto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTaxaIVA)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gridCliente
@@ -85,14 +85,14 @@
             this.gridCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridCliente.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridCliente.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoDataGridViewTextBoxColumn,
@@ -106,96 +106,32 @@
             this.anuladoDataGridViewCheckBoxColumn,
             this.dataCriacaoDataGridViewTextBoxColumn});
             this.gridCliente.DataSource = this.clienteBindingSource;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridCliente.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridCliente.DefaultCellStyle = dataGridViewCellStyle5;
             this.gridCliente.EnableHeadersVisualStyles = false;
             this.gridCliente.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridCliente.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.gridCliente.Location = new System.Drawing.Point(41, 135);
             this.gridCliente.Name = "gridCliente";
             this.gridCliente.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.gridCliente.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCliente.Size = new System.Drawing.Size(567, 464);
             this.gridCliente.TabIndex = 0;
-            // 
-            // codigoDataGridViewTextBoxColumn
-            // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            // 
-            // ivaDataGridViewTextBoxColumn
-            // 
-            this.ivaDataGridViewTextBoxColumn.DataPropertyName = "Iva";
-            this.ivaDataGridViewTextBoxColumn.HeaderText = "Iva";
-            this.ivaDataGridViewTextBoxColumn.Name = "ivaDataGridViewTextBoxColumn";
-            // 
-            // descontoDataGridViewTextBoxColumn
-            // 
-            this.descontoDataGridViewTextBoxColumn.DataPropertyName = "Desconto";
-            this.descontoDataGridViewTextBoxColumn.HeaderText = "Desconto";
-            this.descontoDataGridViewTextBoxColumn.Name = "descontoDataGridViewTextBoxColumn";
-            // 
-            // condicaoPagamentoDataGridViewTextBoxColumn
-            // 
-            this.condicaoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "CondicaoPagamento";
-            this.condicaoPagamentoDataGridViewTextBoxColumn.HeaderText = "CondicaoPagamento";
-            this.condicaoPagamentoDataGridViewTextBoxColumn.Name = "condicaoPagamentoDataGridViewTextBoxColumn";
-            // 
-            // modoPagamentoDataGridViewTextBoxColumn
-            // 
-            this.modoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "ModoPagamento";
-            this.modoPagamentoDataGridViewTextBoxColumn.HeaderText = "ModoPagamento";
-            this.modoPagamentoDataGridViewTextBoxColumn.Name = "modoPagamentoDataGridViewTextBoxColumn";
-            // 
-            // valorCreditoDataGridViewTextBoxColumn
-            // 
-            this.valorCreditoDataGridViewTextBoxColumn.DataPropertyName = "ValorCredito";
-            this.valorCreditoDataGridViewTextBoxColumn.HeaderText = "ValorCredito";
-            this.valorCreditoDataGridViewTextBoxColumn.Name = "valorCreditoDataGridViewTextBoxColumn";
-            // 
-            // facturacaoDataGridViewTextBoxColumn
-            // 
-            this.facturacaoDataGridViewTextBoxColumn.DataPropertyName = "Facturacao";
-            this.facturacaoDataGridViewTextBoxColumn.HeaderText = "Facturacao";
-            this.facturacaoDataGridViewTextBoxColumn.Name = "facturacaoDataGridViewTextBoxColumn";
-            // 
-            // anuladoDataGridViewCheckBoxColumn
-            // 
-            this.anuladoDataGridViewCheckBoxColumn.DataPropertyName = "Anulado";
-            this.anuladoDataGridViewCheckBoxColumn.HeaderText = "Anulado";
-            this.anuladoDataGridViewCheckBoxColumn.Name = "anuladoDataGridViewCheckBoxColumn";
-            // 
-            // dataCriacaoDataGridViewTextBoxColumn
-            // 
-            this.dataCriacaoDataGridViewTextBoxColumn.DataPropertyName = "DataCriacao";
-            this.dataCriacaoDataGridViewTextBoxColumn.HeaderText = "DataCriacao";
-            this.dataCriacaoDataGridViewTextBoxColumn.Name = "dataCriacaoDataGridViewTextBoxColumn";
-            // 
-            // clienteBindingSource
-            // 
-            this.clienteBindingSource.DataSource = typeof(UIWF.Cliente);
             // 
             // pContainer
             // 
@@ -273,6 +209,8 @@
             this.cbxModoPagamento.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "ModoPagamento", true));
             this.cbxModoPagamento.FormattingEnabled = true;
             this.cbxModoPagamento.ItemHeight = 23;
+            this.cbxModoPagamento.Items.AddRange(new object[] {
+            ""});
             this.cbxModoPagamento.Location = new System.Drawing.Point(34, 289);
             this.cbxModoPagamento.Name = "cbxModoPagamento";
             this.cbxModoPagamento.Size = new System.Drawing.Size(339, 29);
@@ -345,6 +283,8 @@
             this.cbxCondicaoPagamento.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.clienteBindingSource, "CondicaoPagamento", true));
             this.cbxCondicaoPagamento.FormattingEnabled = true;
             this.cbxCondicaoPagamento.ItemHeight = 23;
+            this.cbxCondicaoPagamento.Items.AddRange(new object[] {
+            ""});
             this.cbxCondicaoPagamento.Location = new System.Drawing.Point(34, 224);
             this.cbxCondicaoPagamento.Name = "cbxCondicaoPagamento";
             this.cbxCondicaoPagamento.Size = new System.Drawing.Size(339, 29);
@@ -555,6 +495,70 @@
             this.metroLabel8.TabIndex = 4;
             this.metroLabel8.Text = "Código";
             // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataSource = typeof(UIWF.Cliente);
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            // 
+            // ivaDataGridViewTextBoxColumn
+            // 
+            this.ivaDataGridViewTextBoxColumn.DataPropertyName = "Iva";
+            this.ivaDataGridViewTextBoxColumn.HeaderText = "Iva";
+            this.ivaDataGridViewTextBoxColumn.Name = "ivaDataGridViewTextBoxColumn";
+            // 
+            // descontoDataGridViewTextBoxColumn
+            // 
+            this.descontoDataGridViewTextBoxColumn.DataPropertyName = "Desconto";
+            this.descontoDataGridViewTextBoxColumn.HeaderText = "Desconto";
+            this.descontoDataGridViewTextBoxColumn.Name = "descontoDataGridViewTextBoxColumn";
+            // 
+            // condicaoPagamentoDataGridViewTextBoxColumn
+            // 
+            this.condicaoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "CondicaoPagamento";
+            this.condicaoPagamentoDataGridViewTextBoxColumn.HeaderText = "CondicaoPagamento";
+            this.condicaoPagamentoDataGridViewTextBoxColumn.Name = "condicaoPagamentoDataGridViewTextBoxColumn";
+            // 
+            // modoPagamentoDataGridViewTextBoxColumn
+            // 
+            this.modoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "ModoPagamento";
+            this.modoPagamentoDataGridViewTextBoxColumn.HeaderText = "ModoPagamento";
+            this.modoPagamentoDataGridViewTextBoxColumn.Name = "modoPagamentoDataGridViewTextBoxColumn";
+            // 
+            // valorCreditoDataGridViewTextBoxColumn
+            // 
+            this.valorCreditoDataGridViewTextBoxColumn.DataPropertyName = "ValorCredito";
+            this.valorCreditoDataGridViewTextBoxColumn.HeaderText = "ValorCredito";
+            this.valorCreditoDataGridViewTextBoxColumn.Name = "valorCreditoDataGridViewTextBoxColumn";
+            // 
+            // facturacaoDataGridViewTextBoxColumn
+            // 
+            this.facturacaoDataGridViewTextBoxColumn.DataPropertyName = "Facturacao";
+            this.facturacaoDataGridViewTextBoxColumn.HeaderText = "Facturacao";
+            this.facturacaoDataGridViewTextBoxColumn.Name = "facturacaoDataGridViewTextBoxColumn";
+            // 
+            // anuladoDataGridViewCheckBoxColumn
+            // 
+            this.anuladoDataGridViewCheckBoxColumn.DataPropertyName = "Anulado";
+            this.anuladoDataGridViewCheckBoxColumn.HeaderText = "Anulado";
+            this.anuladoDataGridViewCheckBoxColumn.Name = "anuladoDataGridViewCheckBoxColumn";
+            // 
+            // dataCriacaoDataGridViewTextBoxColumn
+            // 
+            this.dataCriacaoDataGridViewTextBoxColumn.DataPropertyName = "DataCriacao";
+            this.dataCriacaoDataGridViewTextBoxColumn.HeaderText = "DataCriacao";
+            this.dataCriacaoDataGridViewTextBoxColumn.Name = "dataCriacaoDataGridViewTextBoxColumn";
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -569,12 +573,12 @@
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.frmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.pContainer.ResumeLayout(false);
             this.pContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDesconto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTaxaIVA)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
