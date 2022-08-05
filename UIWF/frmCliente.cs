@@ -131,8 +131,10 @@ namespace UIWF
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            pContainer.Enabled = false; 
             new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
-            pContainer.Enabled = false;
+            MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
 
         private void chxAnulado_CheckStateChanged(object sender, EventArgs e)
