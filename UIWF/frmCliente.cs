@@ -186,6 +186,9 @@ namespace UIWF
             if ( isValidoCOntrols() ) {
                     pContainer.Enabled = false;
 
+                    var cliente = clienteBindingSource.Current as Cliente;
+                    cliente.Facturacao = alterarEstadoFacturacao( decimal.Parse(txtValorCredito.Text) ).ToString();
+
                     salvarClientes();
 
                         MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -254,6 +257,26 @@ namespace UIWF
             else
             {
                 return false;
+            }
+
+        }
+
+        private Faturacao alterarEstadoFacturacao( Decimal valorCredito ) 
+        {
+            Decimal valorMinimo = 100;
+            Decimal valorMaximo = 10000;
+
+            if (valorCredito < valorMinimo)
+            {
+                return Faturacao.FRACO;
+            }
+            else if (valorCredito >= valorMinimo && valorCredito <= valorMaximo)
+            {
+                return Faturacao.MODERADO;
+            }
+            else
+            {
+                return Faturacao.FORTE;
             }
 
         }
