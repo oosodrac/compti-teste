@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>IronXL.Excel</id>
+    <version>2022.7.7362</version>
+    <title>IronXL - The C# Excel SpreadSheet Library.</title>
+    <authors>https://ironsoftware.com/csharp/excel/</authors>
+    <owners>https://ironsoftware.com/csharp/excel/</owners>
+    <licenseUrl>https://ironsoftware.com/csharp/excel/license/</licenseUrl>
+    <projectUrl>https://ironsoftware.com/csharp/excel/</projectUrl>
+    <iconUrl>https://api.nuget.org/v3-flatcontainer/ironxl.excel/2022.7.7362/icon</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>IronXL allows developers to Read, Generate and Edit Excel (and other Spreadsheet files) in .NET Applications  &amp; websites.
+
+A fast and natural approach to work with Excel and Other Spreadsheet files in C#.
+
+For code samples, docs &amp; more visit https://ironsoftware.com/csharp/excel/
+
+No utilization of Office Excel Interop. Works well with .NET Framework, .NET Core and Azure. All without extra dependancies or the need to install MS Office.
+
+Key library features include:
+* Import Data from XLS/XLSX/CSV/TSV.
+* Export Work Sheets to XLS/XLSX/CSV/TSV/JSON.
+* Work with Spreadsheets as System.Data.DataSet and System.Data.DataTable objects.
+* Excel Formulas recalculated every time a sheet it edited.
+* Intuitive Ranges setting with a WorkSheet["A1:B10"] syntax.
+* Sort Ranges, Columns and Rows.
+* Style Cells - Font, Size, Background pattern, Border, Alignment and Number formats.
+
+IronXL works well in C#, VB.NET, MVC, ASP.NET projects for Websites, Console &amp; Desktop APPs.
+
+Works with:
+- .NET Core 2 , 3.1
+- .NET 5
+- .NET 6
+- .NET Standard 2  &amp; 3
+- .NET Framework 4.5 and above
+- Xamarin, SharePoint, Mono
+- Azure, AWS, Cloud hosting
+- Windows, Linux, Mac, Mobile
+
+Licensing  &amp; Support available for commercial deployments.
+
+Find full documentation at: https://ironsoftware.com/csharp/excel/
+
+For support please contact us: developers@ironsoftware.com</description>
+    <summary />
+    <releaseNotes>* Adds a way to change the string value of a cell without automatically formatting the cell: this is achieved through StringValue property of a Cell.
+* Adds AutoSizeRow method to Row and WorkSheet, which changes the height of a row to fit the contents
+* Adds AutoSizeColumn method to Column and WorkSheet, which changes the width of a row to fit the contents
+* Fixes a bug, where an exception was thrown, when a border was added or changed
+* Fixes a bug, where an exception was thrown, when a cell value was changed to a formula that depends on a single cell, for example "=A1"
+* Fixes a bug, where a string similar to something like "12-720" was parsed as a date in a year 720, when added to a cell. Excel doesn't support dates that predate year 1900. Strings like this are no longer parsed as dates. However, strings that could be parsed as a valid date after 1900 will still be parsed as a date. For example "12-1956". Use StringValue property to bypass this parse.
+* Fixes a bug, where an existing workbook is loaded, changed and saved: cells could lose original formatting when their contents were changed. This is no longer the case.</releaseNotes>
+    <copyright>(C) 2019-2022 IronSoftware.com</copyright>
+    <tags>Excel XLS XLSX CSV XML JSON Microsoft.Office.Interop.Excel IRON EXCEL</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5" />
+      <group targetFramework="Unsupported0.0" />
+    </dependencies>
+  </metadata>
+</package>

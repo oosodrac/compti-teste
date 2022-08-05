@@ -43,6 +43,7 @@ namespace UIWF
         }
         #endregion
 
+        #region popular o gridview
         private void loadGridViewCliente() {
             var clientes = new List<Cliente>
             {
@@ -86,6 +87,7 @@ namespace UIWF
 
             clienteBindingSource.DataSource = clientes;
         }
+        #endregion
 
         #region preencher combox FormaPagamento e CondicaoPagamento com Enum
         private void loadFormaPagamento()
