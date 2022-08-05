@@ -33,6 +33,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridCliente = new MetroFramework.Controls.MetroGrid();
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ivaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descontoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condicaoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorCreditoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facturacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anuladoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataCriacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pContainer = new MetroFramework.Controls.MetroPanel();
             this.numDesconto = new System.Windows.Forms.NumericUpDown();
             this.numTaxaIVA = new System.Windows.Forms.NumericUpDown();
@@ -56,25 +67,15 @@
             this.btnCancelar = new MetroFramework.Controls.MetroButton();
             this.btnRemover = new MetroFramework.Controls.MetroButton();
             this.btnNovo = new MetroFramework.Controls.MetroButton();
-            this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ivaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descontoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.condicaoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modoPagamentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorCreditoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facturacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anuladoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataCriacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPesquisarPeloCodigo = new MetroFramework.Controls.MetroButton();
+            this.txtCodigoPesquisa = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.pContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDesconto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTaxaIVA)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gridCliente
@@ -132,6 +133,70 @@
             this.gridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCliente.Size = new System.Drawing.Size(567, 464);
             this.gridCliente.TabIndex = 0;
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            // 
+            // ivaDataGridViewTextBoxColumn
+            // 
+            this.ivaDataGridViewTextBoxColumn.DataPropertyName = "Iva";
+            this.ivaDataGridViewTextBoxColumn.HeaderText = "Iva";
+            this.ivaDataGridViewTextBoxColumn.Name = "ivaDataGridViewTextBoxColumn";
+            // 
+            // descontoDataGridViewTextBoxColumn
+            // 
+            this.descontoDataGridViewTextBoxColumn.DataPropertyName = "Desconto";
+            this.descontoDataGridViewTextBoxColumn.HeaderText = "Desconto";
+            this.descontoDataGridViewTextBoxColumn.Name = "descontoDataGridViewTextBoxColumn";
+            // 
+            // condicaoPagamentoDataGridViewTextBoxColumn
+            // 
+            this.condicaoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "CondicaoPagamento";
+            this.condicaoPagamentoDataGridViewTextBoxColumn.HeaderText = "CondicaoPagamento";
+            this.condicaoPagamentoDataGridViewTextBoxColumn.Name = "condicaoPagamentoDataGridViewTextBoxColumn";
+            // 
+            // modoPagamentoDataGridViewTextBoxColumn
+            // 
+            this.modoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "ModoPagamento";
+            this.modoPagamentoDataGridViewTextBoxColumn.HeaderText = "ModoPagamento";
+            this.modoPagamentoDataGridViewTextBoxColumn.Name = "modoPagamentoDataGridViewTextBoxColumn";
+            // 
+            // valorCreditoDataGridViewTextBoxColumn
+            // 
+            this.valorCreditoDataGridViewTextBoxColumn.DataPropertyName = "ValorCredito";
+            this.valorCreditoDataGridViewTextBoxColumn.HeaderText = "ValorCredito";
+            this.valorCreditoDataGridViewTextBoxColumn.Name = "valorCreditoDataGridViewTextBoxColumn";
+            // 
+            // facturacaoDataGridViewTextBoxColumn
+            // 
+            this.facturacaoDataGridViewTextBoxColumn.DataPropertyName = "Facturacao";
+            this.facturacaoDataGridViewTextBoxColumn.HeaderText = "Facturacao";
+            this.facturacaoDataGridViewTextBoxColumn.Name = "facturacaoDataGridViewTextBoxColumn";
+            // 
+            // anuladoDataGridViewCheckBoxColumn
+            // 
+            this.anuladoDataGridViewCheckBoxColumn.DataPropertyName = "Anulado";
+            this.anuladoDataGridViewCheckBoxColumn.HeaderText = "Anulado";
+            this.anuladoDataGridViewCheckBoxColumn.Name = "anuladoDataGridViewCheckBoxColumn";
+            // 
+            // dataCriacaoDataGridViewTextBoxColumn
+            // 
+            this.dataCriacaoDataGridViewTextBoxColumn.DataPropertyName = "DataCriacao";
+            this.dataCriacaoDataGridViewTextBoxColumn.HeaderText = "DataCriacao";
+            this.dataCriacaoDataGridViewTextBoxColumn.Name = "dataCriacaoDataGridViewTextBoxColumn";
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataSource = typeof(UIWF.Cliente);
             // 
             // pContainer
             // 
@@ -455,36 +520,6 @@
             this.btnNovo.UseSelectable = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // metroTextBox4
-            // 
-            // 
-            // 
-            // 
-            this.metroTextBox4.CustomButton.Image = null;
-            this.metroTextBox4.CustomButton.Location = new System.Drawing.Point(137, 1);
-            this.metroTextBox4.CustomButton.Name = "";
-            this.metroTextBox4.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox4.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox4.CustomButton.TabIndex = 1;
-            this.metroTextBox4.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox4.CustomButton.UseSelectable = true;
-            this.metroTextBox4.CustomButton.Visible = false;
-            this.metroTextBox4.Lines = new string[0];
-            this.metroTextBox4.Location = new System.Drawing.Point(683, 63);
-            this.metroTextBox4.MaxLength = 32767;
-            this.metroTextBox4.Name = "metroTextBox4";
-            this.metroTextBox4.PasswordChar = '\0';
-            this.metroTextBox4.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox4.SelectedText = "";
-            this.metroTextBox4.SelectionLength = 0;
-            this.metroTextBox4.SelectionStart = 0;
-            this.metroTextBox4.ShortcutsEnabled = true;
-            this.metroTextBox4.Size = new System.Drawing.Size(159, 23);
-            this.metroTextBox4.TabIndex = 5;
-            this.metroTextBox4.UseSelectable = true;
-            this.metroTextBox4.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox4.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
@@ -495,76 +530,53 @@
             this.metroLabel8.TabIndex = 4;
             this.metroLabel8.Text = "Código";
             // 
-            // clienteBindingSource
+            // btnPesquisarPeloCodigo
             // 
-            this.clienteBindingSource.DataSource = typeof(UIWF.Cliente);
+            this.btnPesquisarPeloCodigo.Location = new System.Drawing.Point(848, 59);
+            this.btnPesquisarPeloCodigo.Name = "btnPesquisarPeloCodigo";
+            this.btnPesquisarPeloCodigo.Size = new System.Drawing.Size(254, 34);
+            this.btnPesquisarPeloCodigo.TabIndex = 5;
+            this.btnPesquisarPeloCodigo.Text = "Pesquisar";
+            this.btnPesquisarPeloCodigo.UseSelectable = true;
+            this.btnPesquisarPeloCodigo.Click += new System.EventHandler(this.btnPesquisarPeloCodigo_Click);
             // 
-            // codigoDataGridViewTextBoxColumn
+            // txtCodigoPesquisa
             // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
             // 
-            // nomeDataGridViewTextBoxColumn
             // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
             // 
-            // ivaDataGridViewTextBoxColumn
-            // 
-            this.ivaDataGridViewTextBoxColumn.DataPropertyName = "Iva";
-            this.ivaDataGridViewTextBoxColumn.HeaderText = "Iva";
-            this.ivaDataGridViewTextBoxColumn.Name = "ivaDataGridViewTextBoxColumn";
-            // 
-            // descontoDataGridViewTextBoxColumn
-            // 
-            this.descontoDataGridViewTextBoxColumn.DataPropertyName = "Desconto";
-            this.descontoDataGridViewTextBoxColumn.HeaderText = "Desconto";
-            this.descontoDataGridViewTextBoxColumn.Name = "descontoDataGridViewTextBoxColumn";
-            // 
-            // condicaoPagamentoDataGridViewTextBoxColumn
-            // 
-            this.condicaoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "CondicaoPagamento";
-            this.condicaoPagamentoDataGridViewTextBoxColumn.HeaderText = "CondicaoPagamento";
-            this.condicaoPagamentoDataGridViewTextBoxColumn.Name = "condicaoPagamentoDataGridViewTextBoxColumn";
-            // 
-            // modoPagamentoDataGridViewTextBoxColumn
-            // 
-            this.modoPagamentoDataGridViewTextBoxColumn.DataPropertyName = "ModoPagamento";
-            this.modoPagamentoDataGridViewTextBoxColumn.HeaderText = "ModoPagamento";
-            this.modoPagamentoDataGridViewTextBoxColumn.Name = "modoPagamentoDataGridViewTextBoxColumn";
-            // 
-            // valorCreditoDataGridViewTextBoxColumn
-            // 
-            this.valorCreditoDataGridViewTextBoxColumn.DataPropertyName = "ValorCredito";
-            this.valorCreditoDataGridViewTextBoxColumn.HeaderText = "ValorCredito";
-            this.valorCreditoDataGridViewTextBoxColumn.Name = "valorCreditoDataGridViewTextBoxColumn";
-            // 
-            // facturacaoDataGridViewTextBoxColumn
-            // 
-            this.facturacaoDataGridViewTextBoxColumn.DataPropertyName = "Facturacao";
-            this.facturacaoDataGridViewTextBoxColumn.HeaderText = "Facturacao";
-            this.facturacaoDataGridViewTextBoxColumn.Name = "facturacaoDataGridViewTextBoxColumn";
-            // 
-            // anuladoDataGridViewCheckBoxColumn
-            // 
-            this.anuladoDataGridViewCheckBoxColumn.DataPropertyName = "Anulado";
-            this.anuladoDataGridViewCheckBoxColumn.HeaderText = "Anulado";
-            this.anuladoDataGridViewCheckBoxColumn.Name = "anuladoDataGridViewCheckBoxColumn";
-            // 
-            // dataCriacaoDataGridViewTextBoxColumn
-            // 
-            this.dataCriacaoDataGridViewTextBoxColumn.DataPropertyName = "DataCriacao";
-            this.dataCriacaoDataGridViewTextBoxColumn.HeaderText = "DataCriacao";
-            this.dataCriacaoDataGridViewTextBoxColumn.Name = "dataCriacaoDataGridViewTextBoxColumn";
+            this.txtCodigoPesquisa.CustomButton.Image = null;
+            this.txtCodigoPesquisa.CustomButton.Location = new System.Drawing.Point(53, 1);
+            this.txtCodigoPesquisa.CustomButton.Name = "";
+            this.txtCodigoPesquisa.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtCodigoPesquisa.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtCodigoPesquisa.CustomButton.TabIndex = 1;
+            this.txtCodigoPesquisa.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtCodigoPesquisa.CustomButton.UseSelectable = true;
+            this.txtCodigoPesquisa.CustomButton.Visible = false;
+            this.txtCodigoPesquisa.Lines = new string[0];
+            this.txtCodigoPesquisa.Location = new System.Drawing.Point(691, 63);
+            this.txtCodigoPesquisa.MaxLength = 32767;
+            this.txtCodigoPesquisa.Name = "txtCodigoPesquisa";
+            this.txtCodigoPesquisa.PasswordChar = '\0';
+            this.txtCodigoPesquisa.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCodigoPesquisa.SelectedText = "";
+            this.txtCodigoPesquisa.SelectionLength = 0;
+            this.txtCodigoPesquisa.SelectionStart = 0;
+            this.txtCodigoPesquisa.ShortcutsEnabled = true;
+            this.txtCodigoPesquisa.Size = new System.Drawing.Size(151, 23);
+            this.txtCodigoPesquisa.TabIndex = 6;
+            this.txtCodigoPesquisa.UseSelectable = true;
+            this.txtCodigoPesquisa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtCodigoPesquisa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1152, 753);
-            this.Controls.Add(this.metroTextBox4);
+            this.Controls.Add(this.txtCodigoPesquisa);
+            this.Controls.Add(this.btnPesquisarPeloCodigo);
             this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pContainer);
@@ -573,12 +585,12 @@
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.frmCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.pContainer.ResumeLayout(false);
             this.pContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDesconto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTaxaIVA)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -606,7 +618,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox txtCodigo;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox metroTextBox4;
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroCheckBox chxAnulado;
@@ -623,5 +634,7 @@
         private System.Windows.Forms.BindingSource clienteBindingSource;
         private System.Windows.Forms.NumericUpDown numDesconto;
         private System.Windows.Forms.NumericUpDown numTaxaIVA;
+        private MetroFramework.Controls.MetroButton btnPesquisarPeloCodigo;
+        private MetroFramework.Controls.MetroTextBox txtCodigoPesquisa;
     }
 }

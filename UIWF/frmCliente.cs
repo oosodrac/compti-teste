@@ -187,5 +187,34 @@ namespace UIWF
             }
         }
 
+        private Cliente pesquisarPeloCodigo( String codigo )
+        {
+            return listaCliente.Find( cliente => cliente.Codigo.Equals( codigo ) );
+        }
+
+        private void btnPesquisarPeloCodigo_Click(object sender, EventArgs e)
+        {
+            // Não permiti pesquisar cliente sem um codigo
+            if (String.IsNullOrEmpty(txtCodigoPesquisa.Text))
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Informe o código do cliente", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigoPesquisa.Focus();
+                return;
+            }
+            else
+            {
+                var clienteResult = pesquisarPeloCodigo(txtCodigoPesquisa.Text);
+                if (clienteResult == null)
+                {
+
+                    MetroFramework.MetroMessageBox.Show(this, "Nenhum resultado encontrado com esse código", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    clienteBindingSource.DataSource = clienteResult;
+                }
+            }
+        }
+
     }
 }
