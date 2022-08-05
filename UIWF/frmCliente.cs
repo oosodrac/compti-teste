@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Core;
+using Services;
 
 namespace UIWF
 {
     public partial class frmCliente : MetroFramework.Forms.MetroForm
     {
         static EstadoEntidade estadoEntidade = EstadoEntidade.Novo;
-        static String titleMessageBox = "Teste de Ramiro Cardos | COMPT";
-        static List<Cliente> listaCliente = new List<Cliente>();
-        static String file = @"C:\Users\miros\Documents\visual studio 2013\Projects\TesteCompti\UIWF\bin\Debug\clientes.xlsx";
+        static String titleMessageBox = "Teste de Ramiro Cardos | COMPTI";
 
         public frmCliente()
         {
@@ -61,45 +60,21 @@ namespace UIWF
 
         #region popular o gridview
         private void loadGridViewCliente() {
-            var clientes = new Ganss.Excel.ExcelMapper(file).Fetch<Cliente>().ToList();
-
-            listaCliente.AddRange(clientes);
-            clienteBindingSource.DataSource = listaCliente;
+            clienteBindingSource.DataSource = ClienteService.GetAll();
         }
         #endregion
 
         #region preencher combox FormaPagamento e CondicaoPagamento com Enum
         private void loadFormaPagamento()
         {
-            cbxModoPagamento.DataSource = EnumToList<ModoPagamento>();
+            cbxModoPagamento.DataSource = EnumToList.getListEnum<ModoPagamento>();
         }
 
         private void loadCondicaoPagamento()
         {
-            cbxCondicaoPagamento.DataSource = EnumToList<CondicaoPagamento>();
+            cbxCondicaoPagamento.DataSource = EnumToList.getListEnum<CondicaoPagamento>();
         }
 
-        #endregion
-
-        #region metodo para criar uma lista aprtir de enum
-        public IList<T> EnumToList<T>()
-        {
-            if (!typeof(T).IsEnum)
-                throw new Exception("T não é um Enum");
-
-            IList<T> list = new List<T>();
-            Type type = typeof(T);
-            if (type != null)
-            {
-                Array enumValues = Enum.GetValues(type);
-                foreach (T value in enumValues)
-                {
-                    list.Add(value);
-                }
-            }
-
-            return list;
-        }
         #endregion
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -189,7 +164,7 @@ namespace UIWF
                     pContainer.Enabled = false;
 
                     var cliente = clienteBindingSource.Current as Cliente;
-                    cliente.Facturacao = alterarEstadoFacturacao( decimal.Parse(txtValorCredito.Text) ).ToString();
+                    cliente.Facturacao = ClienteService.alterarEstadoFacturacao( decimal.Parse(txtValorCredito.Text) ).ToString();
 
                     salvarClientes();
 
@@ -212,7 +187,7 @@ namespace UIWF
 
         private Cliente pesquisarPeloCodigo( String codigo )
         {
-            return listaCliente.Find( cliente => cliente.Codigo.Equals( codigo ) );
+            return ClienteService.FindByCodigo(codigo);
         }
 
         private void btnPesquisarPeloCodigo_Click(object sender, EventArgs e)
@@ -241,45 +216,25 @@ namespace UIWF
 
         private void salvarClientes()
         {
-            new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
+            var clientes = (List<Cliente>)clienteBindingSource.DataSource;
+            ClienteService.SaveAll( clientes );
         }
 
         private bool eliminarClientesSemMovimento()
         {
-            var count = listaCliente.Where(cliente => cliente.ValorCredito == 0).Count();
 
-            if (count > 0)
-            {
-                int i = listaCliente.RemoveAll(cliente => cliente.ValorCredito == 0);
-                clienteBindingSource.DataSource = listaCliente;
+                int count = ClienteService.RemoveAll();
+                clienteBindingSource.DataSource = ClienteService.GetAll();
                 salvarClientes();
-                //loadGridViewCliente();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
 
-        }
-
-        private Faturacao alterarEstadoFacturacao( Decimal valorCredito ) 
-        {
-            Decimal valorMinimo = 100;
-            Decimal valorMaximo = 10000;
-
-            if (valorCredito < valorMinimo)
-            {
-                return Faturacao.FRACO;
-            }
-            else if (valorCredito >= valorMinimo && valorCredito <= valorMaximo)
-            {
-                return Faturacao.MODERADO;
-            }
-            else
-            {
-                return Faturacao.FORTE;
-            }
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
 
         }
 
