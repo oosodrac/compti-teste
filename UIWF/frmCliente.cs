@@ -132,10 +132,16 @@ namespace UIWF
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             // Não permiti salvar cliente sem um codigo
-            if (txtCodigo.Text == "0" || txtCodigo.Text == "" || txtCodigo.Text == null)
+            if ( String.IsNullOrEmpty(txtCodigo.Text) )
             {
                 MetroFramework.MetroMessageBox.Show(this, "Informe o código do cliente", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigo.Focus();
                 return;
+            }
+            else if (String.IsNullOrEmpty(txtNome.Text))
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Informe o Nome do cliente", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNome.Focus();
             }
             else
             {
