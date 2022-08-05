@@ -38,6 +38,8 @@ namespace UIWF
 
         #region inicializa as controls do formulario
         private void initFormControls() {
+
+            pContainer.Enabled = false;
             chxAnulado.Checked = false;
             txtCodigo.Text = String.Empty;
             txtNome.Text = String.Empty;
@@ -51,6 +53,7 @@ namespace UIWF
 
             numTaxaIVA.Value = 0;
             numDesconto.Value = 0;
+
         }
         #endregion
 
@@ -120,7 +123,7 @@ namespace UIWF
         private void btnRemover_Click(object sender, EventArgs e)
         {
             estadoEntidade = EstadoEntidade.Eliminado;
-            if (MetroFramework.MetroMessageBox.Show(this, "Tem a certeza que quer eliminar o cliente", titleMessageBox, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MetroFramework.MetroMessageBox.Show(this, "Tens a certeza que pretendes Eliminar o cliente ?", titleMessageBox, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 var cliente = clienteBindingSource.Current as Cliente;
                 if (cliente != null)
@@ -139,6 +142,7 @@ namespace UIWF
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             initForm();
+            pContainer.Enabled = false;
         }
 
         #region verifica se os controls estao validados
@@ -182,8 +186,8 @@ namespace UIWF
 
             if ( isValidoCOntrols() ) {
                     pContainer.Enabled = false;
-                    new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
-                    MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
+                        MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
         }
@@ -192,11 +196,11 @@ namespace UIWF
         {
             if (chxAnulado.CheckState == CheckState.Checked)
             {
-                chxAnulado.Text = "Ativo";
+                chxAnulado.Text = "Anulado";
             }
             else
             {
-                chxAnulado.Text = "Anulado";
+                chxAnulado.Text = "Activo";
             }
         }
 
