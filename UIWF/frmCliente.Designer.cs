@@ -265,6 +265,7 @@
             this.chxAnulado.TabIndex = 16;
             this.chxAnulado.Text = "Activo";
             this.chxAnulado.UseSelectable = true;
+            this.chxAnulado.CheckStateChanged += new System.EventHandler(this.chxAnulado_CheckStateChanged);
             // 
             // cbxModoPagamento
             // 

@@ -121,5 +121,17 @@ namespace UIWF
 
         }
 
+        private void chxAnulado_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (chxAnulado.CheckState == CheckState.Checked)
+            {
+                chxAnulado.Text = "Ativo";
+            }
+            else
+            {
+                chxAnulado.Text = "Anulado";
+            }
+        }
+
     }
 }
