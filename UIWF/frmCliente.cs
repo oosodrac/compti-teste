@@ -130,6 +130,9 @@ namespace UIWF
             clienteBindingSource.MoveLast();
             pContainer.Enabled = true;
             txtCodigo.Focus();
+
+            var excel = new ExcelHelper();
+            excel.inserirData();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

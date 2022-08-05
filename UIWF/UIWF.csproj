@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IronXL">
+      <HintPath>..\packages\IronXL.Excel.2022.7.7362\lib\net45\IronXL.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -56,6 +59,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="CondicaoPagamento.cs" />
     <Compile Include="EstadoEntidade.cs" />
+    <Compile Include="ExcelHelper.cs" />
     <Compile Include="Faturacao.cs" />
     <Compile Include="frmCliente.cs">
       <SubType>Form</SubType>
