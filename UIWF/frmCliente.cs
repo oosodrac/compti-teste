@@ -250,7 +250,7 @@ namespace UIWF
 
             if (count > 0)
             {
-                listaCliente.RemoveAll(cliente => cliente.ValorCredito == 0);
+                int i = listaCliente.RemoveAll(cliente => cliente.ValorCredito == 0);
                 clienteBindingSource.DataSource = listaCliente;
                 salvarClientes();
                 //loadGridViewCliente();
