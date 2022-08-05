@@ -18,5 +18,13 @@ namespace UIWF
         public String Facturacao { get; set; }
         public Boolean Anulado { get; set; }
         public DateTime DataCriacao { get; set; }
+
+        public Cliente()
+        {
+            this.DataCriacao = DateTime.Now;
+            this.Facturacao = Faturacao.MODERADO.ToString();
+            this.Anulado = false;
+
+        }
     }
 }

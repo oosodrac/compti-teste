@@ -8,6 +8,7 @@ namespace UIWF
 {
     public enum ModoPagamento
     {
+
         NUMERARIO,
         DEPOSITO,
         CARTAO_CREDITO
