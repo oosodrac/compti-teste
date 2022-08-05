@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UIWF
+namespace Core
 {
-    class Cliente
+    public class Cliente
     {
         public String Codigo { get; set; }
         public String Nome { get; set; }

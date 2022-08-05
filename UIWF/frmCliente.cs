@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Core;
+
 namespace UIWF
 {
     public partial class frmCliente : MetroFramework.Forms.MetroForm
     {
-        EstadoEntidade estadoEntidade = EstadoEntidade.Novo;
+        static EstadoEntidade estadoEntidade = EstadoEntidade.Novo;
         static String titleMessageBox = "Teste de Ramiro Cardos | COMPT";
         static List<Cliente> listaCliente = new List<Cliente>();
         static String file = @"C:\Users\miros\Documents\visual studio 2013\Projects\TesteCompti\UIWF\bin\Debug\clientes.xlsx";

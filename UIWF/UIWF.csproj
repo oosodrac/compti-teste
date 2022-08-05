@@ -74,18 +74,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="CondicaoPagamento.cs" />
-    <Compile Include="EstadoEntidade.cs" />
     <Compile Include="ExcelHelper.cs" />
-    <Compile Include="Faturacao.cs" />
     <Compile Include="frmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCliente.Designer.cs">
       <DependentUpon>frmCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModoPagamento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCliente.resx">
@@ -114,6 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{d91d9b97-cd3c-4929-9202-64cda1c7ff8e}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

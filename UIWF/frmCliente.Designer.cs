@@ -196,7 +196,7 @@
             // 
             // clienteBindingSource
             // 
-            this.clienteBindingSource.DataSource = typeof(UIWF.Cliente);
+            this.clienteBindingSource.DataSource = typeof(Core.Cliente);
             // 
             // pContainer
             // 
