@@ -100,6 +100,7 @@ namespace UIWF
         private void btnNovo_Click(object sender, EventArgs e)
         {
             // TODO: soroudn with Try Catch
+
             initFormControls();
             estadoEntidade = EstadoEntidade.Adicionado;
             clienteBindingSource.Add(new Cliente());
@@ -140,37 +141,49 @@ namespace UIWF
             initForm();
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+        #region verifica se os controls estao validados
+        private bool isValidoCOntrols()
         {
-            // TODO: soroudn with Try Catch
-
             // Não permiti salvar cliente sem um codigo
-            if ( String.IsNullOrEmpty(txtCodigo.Text) )
+            if (String.IsNullOrEmpty(txtCodigo.Text))
             {
                 MetroFramework.MetroMessageBox.Show(this, "Informe o código do cliente", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCodigo.Focus();
-                return;
+                return false;
             }
             else if (String.IsNullOrEmpty(txtNome.Text))
             {
                 MetroFramework.MetroMessageBox.Show(this, "Informe o Nome do cliente", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNome.Focus();
+                return false;
             }
             else if (cbxCondicaoPagamento.SelectedItem == null)
             {
                 MetroFramework.MetroMessageBox.Show(this, "Informe a Condição de pagamento", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbxCondicaoPagamento.Focus();
+                return false;
             }
             else if (cbxModoPagamento.SelectedItem == null)
             {
                 MetroFramework.MetroMessageBox.Show(this, "Informe o Modo de pagamento", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbxModoPagamento.Focus();
+                return false;
             }
             else
             {
-                pContainer.Enabled = false;
-                new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
-                MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+        }
+        #endregion
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            // TODO: soroudn with Try Catch
+
+            if ( isValidoCOntrols() ) {
+                    pContainer.Enabled = false;
+                    new Ganss.Excel.ExcelMapper().Save(file, listaCliente, "clientes");
+                    MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
         }
