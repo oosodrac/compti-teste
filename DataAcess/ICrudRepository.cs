@@ -7,18 +7,14 @@ using System.Threading.Tasks;
 
 namespace DataAcess
 {
-    class ICrudRepository<T> where T : class
+    public interface ICrudRepository<T, K> where T : class
     {
-        IEnumerable<T> GetAll();
+        List<T> GetAll();
 
-        T Find(Expression<Func<T, bool>> filter);
+        T FindByCodigo( K codigo );
 
-        void Insert(T entity);
+        void SaveAll(List<T> entities);
 
         int RemoveAll( Predicate<T> match );
-
-        IQueryable<T> Where(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderyBy = null);
-
-        int Count(Expression<Func<T, bool>> filter = null);
     }
 }
