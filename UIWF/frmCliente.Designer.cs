@@ -50,7 +50,6 @@
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.chxAnulado = new MetroFramework.Controls.MetroCheckBox();
             this.cbxModoPagamento = new MetroFramework.Controls.MetroComboBox();
-            this.txtValorCredito = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -70,12 +69,14 @@
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.btnPesquisarPeloCodigo = new MetroFramework.Controls.MetroButton();
             this.txtCodigoPesquisa = new MetroFramework.Controls.MetroTextBox();
+            this.numValorCredito = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.pContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDesconto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTaxaIVA)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numValorCredito)).BeginInit();
             this.SuspendLayout();
             // 
             // gridCliente
@@ -133,6 +134,7 @@
             this.gridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCliente.Size = new System.Drawing.Size(567, 464);
             this.gridCliente.TabIndex = 0;
+            this.gridCliente.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gridCliente_DataError);
             // 
             // codigoDataGridViewTextBoxColumn
             // 
@@ -201,12 +203,12 @@
             // pContainer
             // 
             this.pContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pContainer.Controls.Add(this.numValorCredito);
             this.pContainer.Controls.Add(this.numDesconto);
             this.pContainer.Controls.Add(this.numTaxaIVA);
             this.pContainer.Controls.Add(this.metroLabel9);
             this.pContainer.Controls.Add(this.chxAnulado);
             this.pContainer.Controls.Add(this.cbxModoPagamento);
-            this.pContainer.Controls.Add(this.txtValorCredito);
             this.pContainer.Controls.Add(this.metroLabel7);
             this.pContainer.Controls.Add(this.metroLabel6);
             this.pContainer.Controls.Add(this.metroLabel5);
@@ -282,37 +284,6 @@
             this.cbxModoPagamento.Size = new System.Drawing.Size(339, 29);
             this.cbxModoPagamento.TabIndex = 14;
             this.cbxModoPagamento.UseSelectable = true;
-            // 
-            // txtValorCredito
-            // 
-            // 
-            // 
-            // 
-            this.txtValorCredito.CustomButton.Image = null;
-            this.txtValorCredito.CustomButton.Location = new System.Drawing.Point(141, 1);
-            this.txtValorCredito.CustomButton.Name = "";
-            this.txtValorCredito.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtValorCredito.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtValorCredito.CustomButton.TabIndex = 1;
-            this.txtValorCredito.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtValorCredito.CustomButton.UseSelectable = true;
-            this.txtValorCredito.CustomButton.Visible = false;
-            this.txtValorCredito.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clienteBindingSource, "ValorCredito", true));
-            this.txtValorCredito.Lines = new string[0];
-            this.txtValorCredito.Location = new System.Drawing.Point(34, 348);
-            this.txtValorCredito.MaxLength = 32767;
-            this.txtValorCredito.Name = "txtValorCredito";
-            this.txtValorCredito.PasswordChar = '\0';
-            this.txtValorCredito.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtValorCredito.SelectedText = "";
-            this.txtValorCredito.SelectionLength = 0;
-            this.txtValorCredito.SelectionStart = 0;
-            this.txtValorCredito.ShortcutsEnabled = true;
-            this.txtValorCredito.Size = new System.Drawing.Size(163, 23);
-            this.txtValorCredito.TabIndex = 13;
-            this.txtValorCredito.UseSelectable = true;
-            this.txtValorCredito.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtValorCredito.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel7
             // 
@@ -571,6 +542,20 @@
             this.txtCodigoPesquisa.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCodigoPesquisa.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // numValorCredito
+            // 
+            this.numValorCredito.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.clienteBindingSource, "Iva", true));
+            this.numValorCredito.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numValorCredito.Location = new System.Drawing.Point(34, 354);
+            this.numValorCredito.Maximum = new decimal(new int[] {
+            -1486618625,
+            232830643,
+            0,
+            0});
+            this.numValorCredito.Name = "numValorCredito";
+            this.numValorCredito.Size = new System.Drawing.Size(120, 26);
+            this.numValorCredito.TabIndex = 20;
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,6 +577,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numDesconto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTaxaIVA)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numValorCredito)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -608,7 +594,6 @@
         private MetroFramework.Controls.MetroButton btnRemover;
         private MetroFramework.Controls.MetroButton btnNovo;
         private MetroFramework.Controls.MetroComboBox cbxModoPagamento;
-        private MetroFramework.Controls.MetroTextBox txtValorCredito;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroLabel metroLabel5;
@@ -637,5 +622,6 @@
         private System.Windows.Forms.NumericUpDown numTaxaIVA;
         private MetroFramework.Controls.MetroButton btnPesquisarPeloCodigo;
         private MetroFramework.Controls.MetroTextBox txtCodigoPesquisa;
+        private System.Windows.Forms.NumericUpDown numValorCredito;
     }
 }

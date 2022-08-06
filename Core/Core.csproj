@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="CondicaoPagamento.cs" />
+    <Compile Include="EnumToList.cs" />
     <Compile Include="EstadoEntidade.cs" />
     <Compile Include="Faturacao.cs" />
     <Compile Include="ModoPagamento.cs" />
