@@ -56,10 +56,18 @@ namespace UIWF
         #region popular o gridview
         private void loadGridViewCliente()
         {
-            var clientes = ClienteService.GetAll();
 
-            listaCliente.AddRange(clientes);
-            clienteBindingSource.DataSource = listaCliente;
+            try
+            {
+                var clientes = ClienteService.GetAll();
+
+                listaCliente.AddRange(clientes);
+                clienteBindingSource.DataSource = listaCliente;
+            }
+            catch (Exception ex)
+            {
+                clienteBindingSource.DataSource = listaCliente;
+            }
         }
         #endregion
 
@@ -127,10 +135,26 @@ namespace UIWF
             initForm();
         }
 
+
+        bool isCodigoExistente(String codigo)
+        {
+            // Retira-se menos uma posicao do array por causa da ultima posicao que ainda noa foi persistida
+            var result = pesquisarPeloCodigo(codigo).Count() - 1;
+            if (result >= 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         #region verifica se os controls estao validados
         private bool isValidoCOntrols()
         {
-            var clienteResult = pesquisarPeloCodigo(txtCodigo.Text);
+
+            var _isCodigoExistente = isCodigoExistente( txtCodigo.Text );
 
             // Não permiti salvar cliente sem um codigo
             if (String.IsNullOrEmpty(txtCodigo.Text))
@@ -157,18 +181,20 @@ namespace UIWF
                 cbxModoPagamento.Focus();
                 return false;
             }
-            else if (clienteResult != null)
+            else if ( _isCodigoExistente )
             {
                 MetroFramework.MetroMessageBox.Show(this, "Código de cliente já existente, escolhe outro!", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCodigo.Focus();
                 return false;
             }
+
             else
             {
                 return true;
             }
         }
         #endregion
+
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
@@ -206,15 +232,17 @@ namespace UIWF
             }
         }
 
-        private Cliente pesquisarPeloCodigo(String codigo)
+        // Se maior que zero cliente já existente se nao ainda não existe
+        private List<Cliente> pesquisarPeloCodigo(String codigo)
         {
-            return listaCliente.Find(cliente => cliente.Codigo.Equals(codigo));
+            var result = (listaCliente.Where(cliente => cliente.Codigo.ToUpper().Equals(codigo.ToUpper()))).ToList();
+            return result;
         }
 
         private void btnPesquisarPeloCodigo_Click(object sender, EventArgs e)
         {
             // Não permiti pesquisar cliente sem um codigo
-            if (String.IsNullOrEmpty(txtCodigoPesquisa.Text))
+            if (String.IsNullOrEmpty(txtCodigo.Text))
             {
                 MetroFramework.MetroMessageBox.Show(this, "Informe o código do cliente", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCodigoPesquisa.Focus();
@@ -222,15 +250,15 @@ namespace UIWF
             }
             else
             {
-                var clienteResult = pesquisarPeloCodigo(txtCodigoPesquisa.Text);
-                if (clienteResult == null)
+                var _isCodigoExistente = isCodigoExistente(txtCodigoPesquisa.Text);
+                if ( _isCodigoExistente == false )
                 {
 
-                    MetroFramework.MetroMessageBox.Show(this, "Nenhum resultado encontrado com esse código", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    clienteBindingSource.DataSource = pesquisarPeloCodigo(txtCodigoPesquisa.Text);
                 }
                 else
                 {
-                    clienteBindingSource.DataSource = clienteResult;
+                    MetroFramework.MetroMessageBox.Show(this, "Nenhum resultado encontrado com esse código", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -269,6 +297,11 @@ namespace UIWF
             {
 
             }
+        }
+
+        private void btnPesquisarTodos_Click(object sender, EventArgs e)
+        {
+            loadGridViewCliente();
         }
 
     }
