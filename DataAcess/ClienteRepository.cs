@@ -22,7 +22,8 @@ namespace DataAcess
 
         public Cliente FindByCodigo(String codigo)
         {
-            return listaCliente.Find( cliente => cliente.Codigo.Equals(codigo) );
+            var clientes = new Ganss.Excel.ExcelMapper(ExcelHelper.sourceFile).Fetch<Cliente>().ToList();
+            return clientes.Find(cliente => cliente.Codigo.Equals(codigo));
         }
 
         public void SaveAll(List<Cliente> clientes)
