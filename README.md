@@ -53,6 +53,8 @@ Service - é a camada que contem todas as regras de negocio do App
      se valorCredito < minimo; "FRACO"
      se valorCredito >= minimo E valorCredito <= maximo; "MODERADO"
      se valorCredito > maximo; "FORTE"
+## Extra
+- [x] não repetir mesmo código do cliente
 
 ## Demonstração da aplicação
 
