@@ -15,8 +15,9 @@ namespace UIWF
 {
     public partial class frmCliente : MetroFramework.Forms.MetroForm
     {
-        static EstadoEntidade estadoEntidade = EstadoEntidade.Novo;
+        EstadoEntidade estadoEntidade = EstadoEntidade.Novo;
         static String titleMessageBox = "Teste de Ramiro Cardos | COMPTI";
+        static List<Cliente> listaCliente = new List<Cliente>();
 
         public frmCliente()
         {
@@ -38,20 +39,14 @@ namespace UIWF
         #endregion
 
         #region inicializa as controls do formulario
-        private void initFormControls() {
+        private void initFormControls()
+        {
 
             pContainer.Enabled = false;
             chxAnulado.Checked = false;
             txtCodigo.Text = String.Empty;
             txtNome.Text = String.Empty;
             txtValorCredito.Text = "0";
-
-            cbxCondicaoPagamento.SelectedItem = null;
-            cbxCondicaoPagamento.Text = null;
-
-            cbxModoPagamento.SelectedItem = null;
-            cbxModoPagamento.Text = null;
-
             numTaxaIVA.Value = 0;
             numDesconto.Value = 0;
 
@@ -59,8 +54,12 @@ namespace UIWF
         #endregion
 
         #region popular o gridview
-        private void loadGridViewCliente() {
-            clienteBindingSource.DataSource = ClienteService.GetAll();
+        private void loadGridViewCliente()
+        {
+            var clientes = ClienteService.GetAll();
+
+            listaCliente.AddRange(clientes);
+            clienteBindingSource.DataSource = listaCliente;
         }
         #endregion
 
@@ -87,6 +86,11 @@ namespace UIWF
             clienteBindingSource.MoveLast();
             pContainer.Enabled = true;
             txtCodigo.Focus();
+            cbxCondicaoPagamento.SelectedItem = null;
+            cbxCondicaoPagamento.Text = null;
+
+            cbxModoPagamento.SelectedItem = null;
+            cbxModoPagamento.Text = null;
 
         }
 
@@ -103,11 +107,11 @@ namespace UIWF
             if (MetroFramework.MetroMessageBox.Show(this, "Tens a certeza que pretendes Eliminar clientes sem movimento ?", titleMessageBox, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // foram eliminados os clientes sem movimento
-                if (eliminarClientesSemMovimento() )
+                if (eliminarClientesSemMovimento())
                 {
                     MetroFramework.MetroMessageBox.Show(this, "Clientes Eliminados com sucesso", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                    // Não tem cliente sem movimento
+                // Não tem cliente sem movimento
                 else
                 {
                     MetroFramework.MetroMessageBox.Show(this, "Não tem clientes sem movimento", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -160,17 +164,18 @@ namespace UIWF
         {
             // TODO: soroudn with Try Catch
 
-            if ( isValidoCOntrols() ) {
-                    pContainer.Enabled = false;
+            if (isValidoCOntrols())
+            {
+                pContainer.Enabled = false;
 
-                    var cliente = clienteBindingSource.Current as Cliente;
-                    cliente.Facturacao = ClienteService.alterarEstadoFacturacao( decimal.Parse(txtValorCredito.Text) ).ToString();
+                var cliente = clienteBindingSource.Current as Cliente;
+                cliente.Facturacao = ClienteService.alterarEstadoFacturacao(decimal.Parse(txtValorCredito.Text)).ToString();
 
-                    salvarClientes();
+                salvarClientes();
 
-                        MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
         private void chxAnulado_CheckStateChanged(object sender, EventArgs e)
@@ -185,9 +190,9 @@ namespace UIWF
             }
         }
 
-        private Cliente pesquisarPeloCodigo( String codigo )
+        private Cliente pesquisarPeloCodigo(String codigo)
         {
-            return ClienteService.FindByCodigo(codigo);
+            return listaCliente.Find(cliente => cliente.Codigo.Equals(codigo));
         }
 
         private void btnPesquisarPeloCodigo_Click(object sender, EventArgs e)
@@ -216,26 +221,38 @@ namespace UIWF
 
         private void salvarClientes()
         {
-            var clientes = (List<Cliente>)clienteBindingSource.DataSource;
-            ClienteService.SaveAll( clientes );
+            ClienteService.SaveAll(listaCliente);
         }
 
         private bool eliminarClientesSemMovimento()
         {
+            var count = listaCliente.Where(cliente => cliente.ValorCredito == 0).Count();
 
-                int count = ClienteService.RemoveAll();
-                clienteBindingSource.DataSource = ClienteService.GetAll();
+            if (count > 0)
+            {
+                listaCliente.RemoveAll(cliente => cliente.ValorCredito == 0);
+                clienteBindingSource.DataSource = listaCliente;
                 salvarClientes();
+                //loadGridViewCliente();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
-                if (count > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+        }
 
+        private void gridCliente_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
         }
 
     }

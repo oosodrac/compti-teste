@@ -33,8 +33,7 @@ namespace DataAcess
         // Remove todos os cliente sem movimento
         public int RemoveAll(Predicate<Cliente> match)
         {
-            return new ExcelMapper(ExcelHelper.sourceFile).Fetch<Cliente>()
-                .ToList().RemoveAll(match);
+            return new Ganss.Excel.ExcelMapper(ExcelHelper.sourceFile).Fetch<Cliente>().ToList().RemoveAll(cliente => cliente.ValorCredito == 0);
         }
     }
 }

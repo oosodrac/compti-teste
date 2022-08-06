@@ -133,6 +133,7 @@
             this.gridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCliente.Size = new System.Drawing.Size(567, 464);
             this.gridCliente.TabIndex = 0;
+            this.gridCliente.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gridCliente_DataError);
             // 
             // codigoDataGridViewTextBoxColumn
             // 
