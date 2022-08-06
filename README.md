@@ -55,6 +55,8 @@ Service - é a camada que contem todas as regras de negocio do App
      se valorCredito > maximo; "FORTE"
 ## Extra
 - [x] não repetir mesmo código do cliente
+## Planos
+- [] criar ficheiro .xlsx automaticmente no directorio bin/release
 
 ## Demonstração da aplicação
 
@@ -75,11 +77,17 @@ Para acessar o build é necessario ter instalado na sua máquina o .Net Framewor
 $ git clone https://github.com/oosodrac/compti-teste.git
 
 $ abra o arquivo TesteCompti.sln no VS
+
 $ vai até a camada DataAcess
+
 $ abra a class ExcelHelper
+
 $ crie um ficheiro .xlsx no seu computador
+
 $ alter o caminho da variavel sourceFile com o directorio do seu arquivo .xlsx
+
 $ aperte em F5 no VS e Teste o App.
+
 
 ### 🛠 Tecnologias
 As seguintes ferramentas foram usadas na construção do projeto:
