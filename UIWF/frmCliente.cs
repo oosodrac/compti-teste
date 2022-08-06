@@ -130,6 +130,8 @@ namespace UIWF
         #region verifica se os controls estao validados
         private bool isValidoCOntrols()
         {
+            var clienteResult = pesquisarPeloCodigo(txtCodigo.Text);
+
             // Não permiti salvar cliente sem um codigo
             if (String.IsNullOrEmpty(txtCodigo.Text))
             {
@@ -153,6 +155,12 @@ namespace UIWF
             {
                 MetroFramework.MetroMessageBox.Show(this, "Informe o Modo de pagamento", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbxModoPagamento.Focus();
+                return false;
+            }
+            else if (clienteResult != null)
+            {
+                MetroFramework.MetroMessageBox.Show(this, "Código de cliente já existente, escolhe outro!", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigo.Focus();
                 return false;
             }
             else
