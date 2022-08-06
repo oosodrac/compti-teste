@@ -46,7 +46,7 @@ namespace UIWF
             chxAnulado.Checked = false;
             txtCodigo.Text = String.Empty;
             txtNome.Text = String.Empty;
-            txtValorCredito.Text = "0";
+            numValorCredito.Value = 0;
             numTaxaIVA.Value = 0;
             numDesconto.Value = 0;
 
@@ -169,7 +169,7 @@ namespace UIWF
                 pContainer.Enabled = false;
 
                 var cliente = clienteBindingSource.Current as Cliente;
-                cliente.Facturacao = ClienteService.alterarEstadoFacturacao(decimal.Parse(txtValorCredito.Text)).ToString();
+                cliente.Facturacao = ClienteService.alterarEstadoFacturacao( numValorCredito.Value ).ToString();
 
                 salvarClientes();
 
