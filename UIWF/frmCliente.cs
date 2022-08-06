@@ -78,19 +78,21 @@ namespace UIWF
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            // TODO: soroudn with Try Catch
+            try
+            {
+                initFormControls();
+                estadoEntidade = EstadoEntidade.Adicionado;
+                clienteBindingSource.Add(new Cliente());
+                clienteBindingSource.MoveLast();
+                pContainer.Enabled = true;
+                txtCodigo.Focus();
+                cbxCondicaoPagamento.SelectedItem = null;
+                cbxCondicaoPagamento.Text = null;
 
-            initFormControls();
-            estadoEntidade = EstadoEntidade.Adicionado;
-            clienteBindingSource.Add(new Cliente());
-            clienteBindingSource.MoveLast();
-            pContainer.Enabled = true;
-            txtCodigo.Focus();
-            cbxCondicaoPagamento.SelectedItem = null;
-            cbxCondicaoPagamento.Text = null;
-
-            cbxModoPagamento.SelectedItem = null;
-            cbxModoPagamento.Text = null;
+                cbxModoPagamento.SelectedItem = null;
+                cbxModoPagamento.Text = null;
+            }
+            catch { }
 
         }
 
@@ -162,18 +164,24 @@ namespace UIWF
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            // TODO: soroudn with Try Catch
-
-            if (isValidoCOntrols())
+            try
             {
-                pContainer.Enabled = false;
+                if (isValidoCOntrols())
+                {
+                    pContainer.Enabled = false;
 
-                var cliente = clienteBindingSource.Current as Cliente;
-                cliente.Facturacao = ClienteService.alterarEstadoFacturacao( numValorCredito.Value ).ToString();
+                    var cliente = clienteBindingSource.Current as Cliente;
+                    cliente.Facturacao = ClienteService.alterarEstadoFacturacao(numValorCredito.Value).ToString();
 
-                salvarClientes();
+                    salvarClientes();
 
-                MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MetroFramework.MetroMessageBox.Show(this, "Cliente salvo com sucesso! ", titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MetroFramework.MetroMessageBox.Show(this, ex.Message, titleMessageBox, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
