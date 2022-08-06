@@ -123,8 +123,8 @@ namespace UIWF
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            initForm();
             pContainer.Enabled = false;
+            initForm();
         }
 
         #region verifica se os controls estao validados
