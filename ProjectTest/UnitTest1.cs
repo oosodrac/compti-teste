@@ -60,7 +60,7 @@ namespace ProjectTest
                 new Cliente { 
                     Anulado = false, Codigo = "1", CondicaoPagamento = CondicaoPagamento.PRAZO.ToString(),
                     Iva = 0, ModoPagamento = ModoPagamento.CARTAO_CREDITO.ToString(), ValorCredito = 0,
-                    Nome = "Ramiro Cardoso XPTU", Desconto = 0
+                    Nome = "Ramiro Cardoso XPTU Atualizado", Desconto = 0
                 },
                               new Cliente { 
                     Anulado = false, Codigo = "2", CondicaoPagamento = CondicaoPagamento.PRAZO.ToString(),
@@ -69,7 +69,7 @@ namespace ProjectTest
                 },              new Cliente { 
                     Anulado = false, Codigo = "3", CondicaoPagamento = CondicaoPagamento.PRAZO.ToString(),
                     Iva = 0, ModoPagamento = ModoPagamento.CARTAO_CREDITO.ToString(), ValorCredito = 0,
-                    Nome = "Rainer Cardoso", Desconto = 0
+                    Nome = "Rainer Cardoso Atuaizado Atualizado", Desconto = 0
                 }
             };
 
